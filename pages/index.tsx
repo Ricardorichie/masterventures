@@ -5,20 +5,24 @@ import Layout from "../components/layout";
 import styles from "../styles/Home.module.css";
 import NomineeList from "../components/nomineelist";
 import ResultModal from "../components/result-modal";
+import LoadingModal from "../components/loading-modal";
 
 const Home: NextPage = () => {
   const api = "http://localhost:3000/api/ballots";
   const [ballotData, setBallotData] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [nominee, setNominee] = useState({});
   useEffect(() => {
     try {
       fetch(api, { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
+          setLoading(false);
           setBallotData(data?.items);
         });
     } catch (e: any) {
+      setLoading(false);
       console.log("error", e);
     }
   }, []);
@@ -45,6 +49,7 @@ const Home: NextPage = () => {
           <h1 className={styles.pageTitle}>Awards Title</h1>
           {dataList}
           {showModal && modal}
+          {loading && <LoadingModal />}
           <div
             style={{
               width: "100%",

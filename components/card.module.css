@@ -17,7 +17,7 @@
 .container:hover {
   background-color: var(--secondary-hover);
   color: var(--hover-font-color);
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 .container > p {
   margin: 0;

@@ -18,7 +18,7 @@ const Card = ({
   return (
     <div
       style={{
-        border: `${nominee[category] === title ? `2px solid red` : ""}`,
+        border: `${nominee[category] === title ? `3px solid red` : ""}`,
       }}
       className={styles.container}
     >
