@@ -8,8 +8,8 @@ const Card = ({
   nominee,
   setNominee,
 }: {
-  nominee: any;
-  setNominee: any;
+  nominee: { [key: string]: string };
+  setNominee: (data: string, data1: string) => void;
   image: string;
   id: string;
   title: string;
