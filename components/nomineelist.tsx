@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./card";
 import styles from "./nomineelist.module.css";
 
 const NomineeList: any = ({
