@@ -1,0 +1,21 @@
+.category {
+  padding: 0.1rem 0 0.5rem 0;
+}
+
+.title {
+  margin: 0.9rem 0 0 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0.5rem;
+  background-color: var(--secondary-background);
+}
+.title:hover {
+  color: var(--hover-font-color);
+}
+
+.gridview {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1.2rem;
+  margin-top: 1rem;
+}
