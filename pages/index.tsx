@@ -1,11 +1,10 @@
-import type { NextPage } from "next";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Layout from "../components/layout";
+import React, { useEffect, useState } from "react";
+import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
-import NomineeList from "../components/nomineelist";
-import ResultModal from "../components/result-modal";
-import LoadingModal from "../components/loading-modal";
+import NomineeList from "../components/NomineeList/index";
+import ResultModal from "../components/Modals/result-modal";
+import LoadingModal from "../components/Modals/loading-modal";
+import { NextPage } from "next/types";
 
 const Home: NextPage = () => {
   const api = "http://localhost:3000/api/ballots";
@@ -26,8 +25,8 @@ const Home: NextPage = () => {
       console.log("error", e);
     }
   }, []);
-  const setData = (title: any, value: any) => {
-    setNominee((prev: any) => ({
+  const setData = (title: string, value: string) => {
+    setNominee((prev) => ({
       ...prev,
       [title]: value,
     }));
@@ -44,24 +43,23 @@ const Home: NextPage = () => {
   const modal = <ResultModal closeModal={closeModal} />;
   return (
     <Layout>
-      <div>
-        <main>
-          <h1 className={styles.pageTitle}>Awards Title</h1>
-          {dataList}
-          {showModal && modal}
-          {loading && <LoadingModal />}
-          <div
-            style={{
-              width: "100%",
-              textAlign: "right",
-            }}
-          >
-            <button onClick={openModal} className={styles.submitButton}>
-              SUBMIT BALLOT BUTTON
-            </button>
-          </div>
-        </main>
-      </div>
+      <h1 className={styles.pageTitle}>Awards Title</h1>
+
+      <main>
+        {showModal && modal}
+        {loading && <LoadingModal />}
+        <section>{dataList}</section>
+        <div
+          style={{
+            width: "100%",
+            textAlign: "right",
+          }}
+        >
+          <button onClick={openModal} className={styles.submitButton}>
+            SUBMIT BALLOT BUTTON
+          </button>
+        </div>
+      </main>
     </Layout>
   );
 };

@@ -1,5 +1,5 @@
 import styles from "./resultmodal.module.css";
-import utilStyles from "../styles/utils.module.css";
+import utilStyles from "../../styles/utils.module.css";
 const LoadingModal = () => {
   return (
     <div className={utilStyles.modalContainer}>
