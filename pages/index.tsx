@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 import NomineeList from "../components/NomineeList/index";
 import ResultModal from "../components/Modals/result-modal";
 import LoadingModal from "../components/Modals/loading-modal";
+import { NextPage } from "next/types";
 
 const Home: NextPage = () => {
   const api = "http://localhost:3000/api/ballots";
