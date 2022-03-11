@@ -14,13 +14,6 @@ const NomineeList = ({
       photoUrL: string;
     }[];
   }[];
-  //   {
-  //     [key: string]:
-  //       | string
-  //       | { [key: string]: { [key: string]: string }[] }
-  //       | { [key: string]: { [key: string]: { [key: string]: string } }[] }
-  //       | any;
-  //   }[];
   nominee: { [key: string]: string };
   setNominee: (data: string, data2: string) => void;
 }) => {

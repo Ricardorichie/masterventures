@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
@@ -44,24 +43,23 @@ const Home: NextPage = () => {
   const modal = <ResultModal closeModal={closeModal} />;
   return (
     <Layout>
-      <div>
-        <main>
-          <h1 className={styles.pageTitle}>Awards Title</h1>
-          {dataList}
-          {showModal && modal}
-          {loading && <LoadingModal />}
-          <div
-            style={{
-              width: "100%",
-              textAlign: "right",
-            }}
-          >
-            <button onClick={openModal} className={styles.submitButton}>
-              SUBMIT BALLOT BUTTON
-            </button>
-          </div>
-        </main>
-      </div>
+      <h1 className={styles.pageTitle}>Awards Title</h1>
+
+      <main>
+        {showModal && modal}
+        {loading && <LoadingModal />}
+        <section>{dataList}</section>
+        <div
+          style={{
+            width: "100%",
+            textAlign: "right",
+          }}
+        >
+          <button onClick={openModal} className={styles.submitButton}>
+            SUBMIT BALLOT BUTTON
+          </button>
+        </div>
+      </main>
     </Layout>
   );
 };
