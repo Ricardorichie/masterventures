@@ -13,17 +13,16 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [nominee, setNominee] = useState({});
   useEffect(() => {
-    try {
-      fetch(api, { method: "GET" })
-        .then((response) => response.json())
-        .then((data) => {
-          setLoading(false);
-          setBallotData(data?.items);
-        });
-    } catch (e: any) {
-      setLoading(false);
-      console.log("error", e);
-    }
+    fetch(api, { method: "GET" })
+      .then((response) => response.json())
+      .then((data) => {
+        setLoading(false);
+        setBallotData(data?.items);
+      })
+      .catch((e) => {
+        setLoading(false);
+        console.log("error", e);
+      });
   }, []);
   const setData = (title: string, value: string) => {
     setNominee((prev) => ({
